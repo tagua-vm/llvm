@@ -2,15 +2,15 @@
 
 [![Chat on Freenode](https://img.shields.io/badge/chat-on_%23taguavm-ff0066.svg)](https://webchat.freenode.net/?channels=#taguavm)
 [![Chat on Gitter](https://img.shields.io/badge/chat-on_gitter-ff0066.svg)](https://gitter.im/tagua-vm/tagua-vm)
-[![Build status](https://api.travis-ci.org/tagua-vm/parser.svg?branch=master)](https://travis-ci.org/tagua-vm/parser)
-[![Coverage](https://img.shields.io/coveralls/tagua-vm/parser/master.svg)](https://coveralls.io/github/tagua-vm/parser?branch=master)
+[![Build status](https://api.travis-ci.org/tagua-vm/llvm.svg?branch=master)](https://travis-ci.org/tagua-vm/llvm)
+[![Coverage](https://img.shields.io/coveralls/tagua-vm/llvm/master.svg)](https://coveralls.io/github/tagua-vm/llvm?branch=master)
 
 Tagua VM is an experimental [PHP](http://php.net/) Virtual Machine written with
 [the Rust language](https://www.rust-lang.org/) and [the LLVM Compiler
 Infrastructure](http://llvm.org/).
 
 The Virtual Machine is composed of several libraries. This library,
-`tagua/parser` defines safe bindings to LLVM designed for Tagua
+`tagua/llvm` defines safe bindings to LLVM designed for Tagua
 VM. The API does not aim at being a generic safe bindings
 implementation. One might not feel lost if already familiar with LLVM
 infrastructure. The basis of the infrastructure is the context and the
