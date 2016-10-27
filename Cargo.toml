@@ -1,0 +1,46 @@
+[package]
+name        = "tagua-llvm"
+version     = "0.0.1"
+authors     = ["Ivan Enderlin <ivan.enderlin@tagua.io>"]
+repository  = "https://github.com/tagua-vm/llvm"
+description = "Safe LLVM bindings."
+readme      = "README.md"
+keywords    = ["php", "virtual machine", "llvm"]
+license     = "BSD-3-Clause"
+
+[lib]
+name    = "tagua_llvm"
+path    = "source/lib.rs"
+test    = true
+doctest = true
+bench   = true
+doc     = true
+harness = true
+
+[profile.dev]
+opt-level        = 0
+debug            = true
+rpath            = false
+lto              = false
+debug-assertions = true
+codegen-units    = 1
+
+[profile.release]
+opt-level        = 3
+debug            = false
+rpath            = false
+lto              = true
+debug-assertions = false
+codegen-units    = 1
+
+[profile.test]
+opt-level        = 0
+debug            = true
+rpath            = false
+lto              = false
+debug-assertions = true
+codegen-units    = 1
+
+[dependencies]
+libc = "~0.2.7"
+llvm-sys = "~0.3.0"
