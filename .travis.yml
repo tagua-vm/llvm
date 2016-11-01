@@ -38,7 +38,7 @@ matrix:
 
 cache:
   directories:
-    - llvm-3.8.1
+    - llvm-3.9.0
 
 sudo: required
 
@@ -60,31 +60,31 @@ notifications:
 install:
   - |
       if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-          if [[ ! -n "$(ls -A llvm-3.8.1)" ]]; then
-              curl 'http://llvm.org/releases/3.8.1/clang+llvm-3.8.1-x86_64-linux-gnu-ubuntu-14.04.tar.xz' --verbose > llvm-3.8.1.tar.xz;
-              mkdir llvm-3.8.1;
-              tar -xvf llvm-3.8.1.tar.xz --strip 1 -C llvm-3.8.1;
+          if [[ ! -n "$(ls -A llvm-3.9.0)" ]]; then
+              curl 'http://llvm.org/releases/3.9.0/clang+llvm-3.9.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz' --verbose > llvm-3.9.0.tar.xz;
+              mkdir llvm-3.9.0;
+              tar -xvf llvm-3.9.0.tar.xz --strip 1 -C llvm-3.9.0;
           fi
 
-          export PATH="$PWD/llvm-3.8.1/bin/:$PATH";
+          export PATH="$PWD/llvm-3.9.0/bin/:$PATH";
 
           # llvm-config gives compiler arguments for the compiler it was
           # compiled with. On Ubuntu cc is gcc, so override that to avoid:
           # “unrecognized command line option ‘-Wcovered-switch-default’”.
           cc --version;
           sudo rm $(which cc);
-          sudo ln -s $PWD/llvm-3.8.1/bin/clang /usr/bin/cc;
+          sudo ln -s $PWD/llvm-3.9.0/bin/clang /usr/bin/cc;
           cc --version;
       fi
   - |
       if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
           brew update;
           brew rm -f llvm;
-          brew install llvm38;
-          export CXX="clang++-3.8 -stdlib=libc++"
-          export CXXFLAGS="$CXXFLAGS -nostdinc++ -I/usr/local/opt/llvm38/lib/llvm-3.8/include/c++/v1"
-          export LDFLAGS="$LDFLAGS -L/usr/local/opt/llvm38/lib/llvm-3.8/lib"
-          export PATH="/usr/local/opt/llvm38/lib/llvm-3.8/bin:$PATH";
+          brew install llvm;
+          export CXX="clang++ -stdlib=libc++"
+          export CXXFLAGS="$CXXFLAGS -I/usr/local/opt/llvm/include"
+          export LDFLAGS="$LDFLAGS -L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+          export PATH="/usr/local/opt/llvm/bin:$PATH";
       fi
   - llvm-config --version
 
