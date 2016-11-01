@@ -154,7 +154,8 @@ mod tests {
         let module  = Module::new("foobar", &context);
 
         assert_eq!(
-            "; ModuleID = 'foobar'\n",
+            "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n",
             format!("{}", module)
         );
     }

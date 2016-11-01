@@ -232,6 +232,7 @@ mod tests {
 
         assert_eq!(
             "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n" +
             "\n" +
             "define i8 @f() {\n" +
             "entry:\n" +

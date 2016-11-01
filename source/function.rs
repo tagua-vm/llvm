@@ -159,6 +159,7 @@ mod tests {
 
         assert_eq!(
             "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n" +
             "\n" +
             "declare void @f()\n",
             format!("{}", module)
@@ -178,6 +179,7 @@ mod tests {
 
         assert_eq!(
             "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n" +
             "\n" +
             "declare double @f(i8, [7 x i1])\n",
             format!("{}", module)
@@ -198,6 +200,7 @@ mod tests {
 
         assert_eq!(
             "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n" +
             "\n" +
             "define void @f() {\n" +
             "entry:\n" +

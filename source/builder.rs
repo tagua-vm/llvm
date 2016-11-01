@@ -172,6 +172,7 @@ mod tests {
 
         assert_eq!(
             "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n" +
             "\n" +
             "define void @f() {\n" +
             "entry:\n" +
@@ -193,6 +194,7 @@ mod tests {
 
         assert_eq!(
             "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n" +
             "\n" +
             "define i1 @f() {\n" +
             "entry:\n" +
@@ -214,6 +216,7 @@ mod tests {
 
         assert_eq!(
             "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n" +
             "\n" +
             "define i8 @f() {\n" +
             "entry:\n" +
@@ -240,6 +243,7 @@ mod tests {
 
         assert_eq!(
             "; ModuleID = 'foobar'\n".to_string() +
+            "source_filename = \"foobar\"\n" +
             "\n" +
             "define i8 @f() {\n" +
             "entry:\n" +
